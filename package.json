@@ -1,14 +1,14 @@
 {
-  "name": "live-code-session",
+  "name": "live-express",
   "version": "1.0.0",
-  "description": "creating a express app",
+  "description": "live building express app",
   "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
-  "author": "prathamesh rai",
+  "author": "prathmesh rai",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^17.2.1",
