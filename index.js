@@ -4,7 +4,13 @@ import config from "./src/config/index.js";
 
 (async()=>{
     try{
-        await mongoose.connect(config.MONGODB_URL)
+        console.log("Trying to connect:", config.MONGODB_URL);
+        await mongoose.connect(config.MONGODB_URL, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        ssl: true,
+        tlsAllowInvalidCertificates: true,  // 👈 workaround for SSL handshake errors
+        })
         console.log("Database Connected!!!")
 
         app.on('error', (err)=>{
@@ -19,6 +25,7 @@ import config from "./src/config/index.js";
         app.listen(config.PORT, onListening)
 
     }catch(err){
+        console.error("❌ Mongoose connection error:", err.message);
         console.error("ERROR: ",err)
         throw err
     }
